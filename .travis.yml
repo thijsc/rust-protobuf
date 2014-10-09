@@ -22,7 +22,7 @@
 language: rust
 
 rust:
-  - nightly
+  - 0.12
 
 before_install:
   - sudo apt-get update
