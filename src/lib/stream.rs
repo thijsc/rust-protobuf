@@ -695,10 +695,6 @@ impl<'a> WithCodedInputStream for &'a mut (Read + 'a) {
     {
         let mut is = CodedInputStream::new(self);
         let r = try!(cb(&mut is));
-        // reading from Reader requires all data to be read,
-        // because CodedInputStream caches data, and otherwize
-        // buffer would be discarded
-        try!(is.check_eof());
         Ok(r)
     }
 }
